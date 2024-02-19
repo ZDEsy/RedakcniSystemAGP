@@ -19,7 +19,4 @@ public class UserList {
     public void setUsers(ArrayList<User> users) {
         UserList.users = users;
     }
-
-    public static void main(String[] args) {
-    }
 }
