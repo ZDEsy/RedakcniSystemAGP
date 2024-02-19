@@ -58,7 +58,7 @@
           <gridbag weightx="0.0" weighty="1.0"/>
         </constraints>
         <properties>
-          <text value="Potvrdit"/>
+          <text value="Přidat"/>
         </properties>
       </component>
       <component id="d102d" class="javax.swing.JComboBox" binding="privsList">

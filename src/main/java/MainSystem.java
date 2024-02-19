@@ -35,6 +35,7 @@ public class MainSystem extends JFrame {
                 System.out.println("Správně");
                 loggedUser = UserList.users.get(i);
                 new AdminForm();
+                dispose();
             }
             else if(i == UserList.users.size()-1)
             {

@@ -24,10 +24,28 @@ public class AddUserForm extends JFrame {
         submitBut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UserList.users.add(new User(usernameInput.getText(),ageInput.getText(),passInput.getText(),privsList.getSelectedIndex()));
-                System.out.println(UserList.users.get(0).username + UserList.users.get(0).ID + " " + UserList.users.get(1).username + UserList.users.get(1).ID);
+                if (SameUsernameCheck())
+                {
+                    UserList.users.add(new User(usernameInput.getText(),ageInput.getText(),passInput.getText(),privsList.getSelectedIndex()));
+                    dispose();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"Uživatel se stejným jménem již existuje.");
+                }
             }
         });
+    }
+    public boolean SameUsernameCheck()
+    {
+        for(int i = 0; i < UserList.users.size(); i++)
+        {
+            if(UserList.users.get(i).username.equals(usernameInput.getText()))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void PrivCheck()

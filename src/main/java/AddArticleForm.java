@@ -20,6 +20,7 @@ public class AddArticleForm extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 UserList.articles.add(new Article(titleInput.getText(),textInput.getText()));
+                dispose();
             }
         });
     }

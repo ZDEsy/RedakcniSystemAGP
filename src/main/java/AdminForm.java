@@ -37,6 +37,12 @@ public class AdminForm extends JFrame {
                 new AddArticleForm();
             }
         });
+        deleteArticleBut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new DeleteArticleForm();
+            }
+        });
     }
 
     public void PrivCheck()
@@ -57,7 +63,12 @@ public class AdminForm extends JFrame {
         setTitle("Admin panel");
         setSize(600,500);
         setMinimumSize(new Dimension(600, 500));
-        setDefaultCloseOperation(AdminForm.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                new MainSystem();
+                dispose();
+            }
+        });
         setVisible(true);
         adminPrivilegeNo.setText("Úroveň: " + UserList.users.get(MainSystem.loggedUser.ID).privileges);
     }
