@@ -19,7 +19,7 @@ public class AddArticleForm extends JFrame{
         addArticleBut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                UserList.articles.add(new Article(titleInput.getText(),textInput.getText()));
             }
         });
     }

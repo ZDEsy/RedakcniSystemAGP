@@ -9,7 +9,6 @@ public class Article {
     String title;
     String text;
 
-    ArrayList<Article> userArticleList = new ArrayList<Article>();
     public Article(String title, String text)
     {
         ID = UserList.articles.size();
