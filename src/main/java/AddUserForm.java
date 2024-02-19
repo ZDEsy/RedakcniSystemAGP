@@ -24,7 +24,7 @@ public class AddUserForm extends JFrame {
         submitBut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UserList.users.add(new User(UserList.users.size(),usernameInput.getText(),ageInput.getText(),passInput.getText(),privsList.getSelectedIndex()));
+                UserList.users.add(new User(usernameInput.getText(),ageInput.getText(),passInput.getText(),privsList.getSelectedIndex()));
                 System.out.println(UserList.users.get(0).username + UserList.users.get(0).ID + " " + UserList.users.get(1).username + UserList.users.get(1).ID);
             }
         });

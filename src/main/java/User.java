@@ -7,13 +7,14 @@ public class User extends UserList{
 
     public User(String username, String age, String password)
     {
+        ID = UserList.users.size();
         this.username = username;
         this.age = age;
         this.password = password;
     }
-    public User(int ID, String username, String age, String password, int privileges)
+    public User(String username, String age, String password, int privileges)
     {
-        this.ID = ID;
+        ID = UserList.users.size();
         this.username = username;
         this.age = age;
         this.password = password;

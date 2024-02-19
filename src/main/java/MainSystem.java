@@ -15,7 +15,7 @@ public class MainSystem extends JFrame {
     public MainSystem()
     {
         mainInitComponents();
-        User AdminUser = new User(0,"Admin","17","Admin",3);
+        User AdminUser = new User("Admin","17","Admin",3);
         UserList.users.add(AdminUser);
         loginBut.addActionListener(new ActionListener() {
             @Override

@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class UserList {
     static ArrayList<User> users = new ArrayList<User>();
-    static ArrayList<User> articles = new ArrayList<User>();
+    static ArrayList<Article> articles = new ArrayList<Article>();
 
-    public ArrayList<User> getArticles() {
+    public ArrayList<Article> getArticles() {
         return articles;
     }
 
@@ -12,7 +12,7 @@ public class UserList {
         return users;
     }
 
-    public void setArticles(ArrayList<User> articles) {
+    public void setArticles(ArrayList<Article> articles) {
         UserList.articles = articles;
     }
 

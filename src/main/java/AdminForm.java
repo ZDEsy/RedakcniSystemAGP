@@ -31,6 +31,12 @@ public class AdminForm extends JFrame {
                 new DeleteUserForm();
             }
         });
+        addArticleBut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new AddArticleForm();
+            }
+        });
     }
 
     public void PrivCheck()
