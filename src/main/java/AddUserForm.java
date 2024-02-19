@@ -24,7 +24,7 @@ public class AddUserForm extends JFrame {
         submitBut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UserList.users.add(new User(UserList.users.size(),usernameInput.getText(),ageInput.getText(),passInput.getText(),privsList.getSelectedIndex()));
+                UserList.users.add(new User(UserList.users.size()+1,usernameInput.getText(),ageInput.getText(),passInput.getText(),privsList.getSelectedIndex()));
                 System.out.println(UserList.users.get(0).username + " " + UserList.users.get(1).username);
             }
         });
@@ -32,7 +32,7 @@ public class AddUserForm extends JFrame {
     private void addUserInitComponents()
     {
         setContentPane(tab);
-        setTitle("Panel přdání uživatele");
+        setTitle("Panel přidání uživatele");
         setSize(600,500);
         setMinimumSize(new Dimension(600, 500));
         setDefaultCloseOperation(AddUserForm.DISPOSE_ON_CLOSE);

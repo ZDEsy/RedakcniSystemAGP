@@ -19,6 +19,7 @@ public class AdminForm extends JFrame {
     public AdminForm()
     {
         adminInitComponents();
+        PrivCheck();
 
         addUserBut.addActionListener(new ActionListener() {
             @Override
@@ -26,6 +27,24 @@ public class AdminForm extends JFrame {
                 new AddUserForm();
             }
         });
+    }
+
+    public void PrivCheck()
+    {
+        switch (UserList.users.get(MainSystem.userNum).privileges)
+        {
+            case 0, 1:
+                addUserBut.setVisible(false);
+                deleteUserBut.setVisible(false);
+                addAdminBut.setVisible(false);
+                deleteAdminBut.setVisible(false);
+                break;
+            case 2:
+                addAdminBut.setVisible(false);
+                deleteAdminBut.setVisible(false);
+            default:
+                break;
+        }
     }
     private void adminInitComponents()
     {

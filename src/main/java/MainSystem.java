@@ -33,8 +33,8 @@ public class MainSystem extends JFrame {
             if(usernameInput.getText().equals(UserList.users.get(i).username) && String.valueOf(passwordInput.getPassword()).equals(UserList.users.get(i).password))
             {
                 System.out.println("Správně");
-                new AdminForm();
                 MainSystem.userNum = i;
+                new AdminForm();
             }
             else if(i == UserList.users.size()-1)
             {
