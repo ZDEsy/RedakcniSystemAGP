@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainSystem extends JFrame {
-    private JPanel mainPan;
+    private JPanel tab;
     private JLabel label1;
     private JLabel label2;
     private JLabel label3;
@@ -25,7 +25,7 @@ public class MainSystem extends JFrame {
         });
     }
 
-    static int userNum;
+    static User loggedUser;
     public void CorrectLogin()
     {
         for(int i = 0; i < UserList.users.size(); i++)
@@ -33,7 +33,7 @@ public class MainSystem extends JFrame {
             if(usernameInput.getText().equals(UserList.users.get(i).username) && String.valueOf(passwordInput.getPassword()).equals(UserList.users.get(i).password))
             {
                 System.out.println("Správně");
-                MainSystem.userNum = i;
+                loggedUser = UserList.users.get(i);
                 new AdminForm();
             }
             else if(i == UserList.users.size()-1)
@@ -46,7 +46,7 @@ public class MainSystem extends JFrame {
     }
     private void mainInitComponents()
     {
-        setContentPane(mainPan);
+        setContentPane(tab);
         setTitle("Redakční systém");
         setSize(600,500);
         setMinimumSize(new Dimension(600, 500));

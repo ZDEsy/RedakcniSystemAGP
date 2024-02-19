@@ -27,11 +27,17 @@ public class AdminForm extends JFrame {
                 new AddUserForm();
             }
         });
+        deleteUserBut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new DeleteUserForm();
+            }
+        });
     }
 
     public void PrivCheck()
     {
-        switch (UserList.users.get(MainSystem.userNum).privileges)
+        switch (UserList.users.get(MainSystem.loggedUser.ID).privileges)
         {
             case 0, 1:
                 addUserBut.setVisible(false);
@@ -54,6 +60,6 @@ public class AdminForm extends JFrame {
         setMinimumSize(new Dimension(600, 500));
         setDefaultCloseOperation(AdminForm.DISPOSE_ON_CLOSE);
         setVisible(true);
-        adminPrivilegeNo.setText("Úroveň: " + UserList.users.get(MainSystem.userNum).privileges);
+        adminPrivilegeNo.setText("Úroveň: " + UserList.users.get(MainSystem.loggedUser.ID).privileges);
     }
 }
