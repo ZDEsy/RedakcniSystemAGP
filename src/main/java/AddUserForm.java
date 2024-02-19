@@ -29,6 +29,17 @@ public class AddUserForm extends JFrame {
             }
         });
     }
+
+    public void PrivCheck()
+    {
+        switch (UserList.users.get(MainSystem.loggedUser.ID).privileges)
+        {
+            case 0, 1, 2:
+                privsList.removeItemAt(3);
+                break;
+        }
+    }
+
     private void addUserInitComponents()
     {
         setContentPane(tab);
@@ -37,5 +48,6 @@ public class AddUserForm extends JFrame {
         setMinimumSize(new Dimension(600, 500));
         setDefaultCloseOperation(AddUserForm.DISPOSE_ON_CLOSE);
         setVisible(true);
+        PrivCheck();
     }
 }

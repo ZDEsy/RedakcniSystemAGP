@@ -13,8 +13,6 @@ public class AdminForm extends JFrame {
     private JButton deleteArticleBut;
     private JButton addUserBut;
     private JButton deleteUserBut;
-    private JButton addAdminBut;
-    private JButton deleteAdminBut;
 
     public AdminForm()
     {
@@ -42,12 +40,7 @@ public class AdminForm extends JFrame {
             case 0, 1:
                 addUserBut.setVisible(false);
                 deleteUserBut.setVisible(false);
-                addAdminBut.setVisible(false);
-                deleteAdminBut.setVisible(false);
                 break;
-            case 2:
-                addAdminBut.setVisible(false);
-                deleteAdminBut.setVisible(false);
             default:
                 break;
         }

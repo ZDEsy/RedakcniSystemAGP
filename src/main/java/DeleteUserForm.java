@@ -16,8 +16,15 @@ public class DeleteUserForm extends JFrame{
         delUserBut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!MainSystem.loggedUser.username.equals(userList.getSelectedItem()))
+                {
                     UserList.users.remove(userList.getSelectedIndex());
                     dispose();
+                }
+                else
+                {
+                    messageLabel.setText("Nemůžete vymazat sám sebe.");
+                }
             }
         });
     }
