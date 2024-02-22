@@ -43,6 +43,7 @@ public class DeleteUserForm extends JFrame{
         setMinimumSize(new Dimension(600, 500));
         setDefaultCloseOperation(DeleteUserForm.DISPOSE_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
         FillComboBox();
     }
 }

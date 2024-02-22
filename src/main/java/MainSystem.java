@@ -15,8 +15,7 @@ public class MainSystem extends JFrame {
     public MainSystem()
     {
         mainInitComponents();
-        User AdminUser = new User("Admin","17","Admin",3);
-        UserList.users.add(AdminUser);
+        UserList.users.add(new User("Admin","17","Admin",3));
         loginBut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,7 +31,6 @@ public class MainSystem extends JFrame {
         {
             if(usernameInput.getText().equals(UserList.users.get(i).username) && String.valueOf(passwordInput.getPassword()).equals(UserList.users.get(i).password))
             {
-                System.out.println("Správně");
                 loggedUser = UserList.users.get(i);
                 new AdminForm();
                 dispose();

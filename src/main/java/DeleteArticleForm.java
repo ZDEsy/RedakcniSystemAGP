@@ -18,15 +18,23 @@ public class DeleteArticleForm extends JFrame{
         delArtBut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!(MainSystem.loggedUser.privileges == 0 && !(UserList.articles.get(articleList.getSelectedIndex()).creator.equals(MainSystem.loggedUser.username))))
+                try
                 {
-                    UserList.articles.remove(articleList.getSelectedIndex());
-                    dispose();
+                    if(!(MainSystem.loggedUser.privileges == 0 && !(UserList.articles.get(articleList.getSelectedIndex()).creator.equals(MainSystem.loggedUser.username))))
+                    {
+                        UserList.articles.remove(articleList.getSelectedIndex());
+                        dispose();
+                    }
+                    else
+                    {
+                        messageLabel.setText("Nemáte oprávnění mazat články ostatních uživatelů");
+                    }
                 }
-                else
+                catch (Exception y)
                 {
-                    messageLabel.setText("Nemáte oprávnění mazat články ostatních uživatelů");
+                    messageLabel.setText("Žádný článek k odstranění.");
                 }
+
 
             }
         });
@@ -36,7 +44,7 @@ public class DeleteArticleForm extends JFrame{
     {
         for(int i = 0; i < UserList.articles.size(); i++)
         {
-            articleList.addItem(UserList.articles.get(i).title + " " + UserList.articles.get(i).creator);
+            articleList.addItem("Titulek: " + UserList.articles.get(i).title + ", Autor: " + UserList.articles.get(i).creator);
         }
     }
     private void delArticleInitComponents() {
@@ -46,6 +54,7 @@ public class DeleteArticleForm extends JFrame{
         setMinimumSize(new Dimension(600, 500));
         setDefaultCloseOperation(DeleteUserForm.DISPOSE_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
         FillComboBox();
     }
 }

@@ -9,7 +9,7 @@ public class AddUserForm extends JFrame {
     private JLabel addUserTitle;
     private JButton submitBut;
     private JComboBox privsList;
-    private JTextField passInput;
+    private JPasswordField passInput;
     private JTextField ageInput;
     private JTextField usernameInput;
     private JLabel usernameLabel;
@@ -24,14 +24,14 @@ public class AddUserForm extends JFrame {
         submitBut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (SameUsernameCheck())
+                if (SameUsernameCheck() && AllFilled() && OnlyDigits())
                 {
-                    UserList.users.add(new User(usernameInput.getText(),ageInput.getText(),passInput.getText(),privsList.getSelectedIndex()));
+                    UserList.users.add(new User(usernameInput.getText(),ageInput.getText(),String.valueOf(passInput.getPassword()),privsList.getSelectedIndex()));
                     dispose();
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null,"Uživatel se stejným jménem již existuje.");
+                    JOptionPane.showMessageDialog(null,"Chyba. Ujistěte se, že jste vyplnili všechny pole, zadali číslo do položky věku a že se vaše uživatelské jméno neshoduje s jiným uživatelem.");
                 }
             }
         });
@@ -46,6 +46,16 @@ public class AddUserForm extends JFrame {
             }
         }
         return true;
+    }
+
+    public boolean AllFilled()
+    {
+        return !(usernameInput.getText().isEmpty() || ageInput.getText().isEmpty() || String.valueOf(passInput.getPassword()).isEmpty());
+    }
+    public boolean OnlyDigits()
+    {
+        String toCheck = ageInput.getText().replaceAll("[^\\d.]", "");
+        return !toCheck.isEmpty();
     }
 
     public void PrivCheck()
@@ -66,6 +76,7 @@ public class AddUserForm extends JFrame {
         setMinimumSize(new Dimension(600, 500));
         setDefaultCloseOperation(AddUserForm.DISPOSE_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
         PrivCheck();
     }
 }

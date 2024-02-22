@@ -32,5 +32,6 @@ public class AddArticleForm extends JFrame{
         setMinimumSize(new Dimension(600, 500));
         setDefaultCloseOperation(AddArticleForm.DISPOSE_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
     }
 }

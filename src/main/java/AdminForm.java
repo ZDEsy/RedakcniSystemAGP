@@ -70,6 +70,7 @@ public class AdminForm extends JFrame {
             }
         });
         setVisible(true);
+        setLocationRelativeTo(null);
         adminPrivilegeNo.setText("Úroveň: " + UserList.users.get(MainSystem.loggedUser.ID).privileges);
     }
 }
