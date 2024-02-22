@@ -45,14 +45,16 @@ public class MainSystem extends JFrame {
             }
         }
     }
+
     private void mainInitComponents()
     {
-        setContentPane(tab);
         setTitle("Redakční systém");
-        setSize(600,500);
-        setMinimumSize(new Dimension(600, 500));
-        setDefaultCloseOperation(MainSystem.EXIT_ON_CLOSE);
+        setSize(500,200);
+        setMinimumSize(new Dimension(500, 200));
+        setContentPane(tab);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     public static void main(String[] args) {
